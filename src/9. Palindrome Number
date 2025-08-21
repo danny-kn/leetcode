@@ -1,0 +1,13 @@
+import java.util.*;
+
+class Solution {
+  public boolean isPalindrome(int x) {
+    if (String.valueOf(x).charAt(0) == '-') {
+      return false;
+    } else {
+      StringBuilder sb = new StringBuilder();
+      sb.append(x);
+      return sb.toString().equals(sb.reverse().toString());
+    }
+  }
+}
