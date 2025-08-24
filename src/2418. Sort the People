@@ -1,0 +1,22 @@
+import java.util.Comparator;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.PriorityQueue;
+
+class Solution {
+    public String[] sortPeople(String[] names, int[] heights) {
+        Map<Integer, String> map = new HashMap<>();
+        for (int j = 0; j < names.length; j++) {
+            map.put(heights[j], names[j]);
+        }
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Comparator.reverseOrder());
+        for (int j = 0; j < names.length; j++) {
+            maxHeap.add(heights[j]);
+        }
+        String[] res = new String[names.length];
+        for (int j = 0; j < names.length; j++) {
+            res[j] = map.get(maxHeap.poll());
+        }
+        return res;
+    }
+}
